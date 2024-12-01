@@ -50,7 +50,7 @@ def part_two():
             if finished:
                 finished = False
                 break
-            for end in range(len(curr_line) + 1):  # This is not safe at all
+            for end in range(len(curr_line)):  # This is not safe at all
                 if curr_line[start:end] in word_to_number:
                     curr_line = curr_line.replace(curr_line[start:end], word_to_number[curr_line[start:end]], 1)
                     finished = True
@@ -64,11 +64,11 @@ def part_two():
         #  Found first letter, now reset and find second letter
         curr_line = line
 
-        for end in range(len(curr_line) + 1, 0, -1):
+        for end in range(len(curr_line), 0, -1):
             if finished:
                 finished = False
                 break
-            for start in range(len(curr_line) + 1, -1, -1):
+            for start in range(len(curr_line), 0, -1):
                 if curr_line[start:end] in word_to_number:
                     curr_line = curr_line.replace(curr_line[start:end], word_to_number[curr_line[start:end]])
                     finished = True
